@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+test("the initial input box is empty", ()=>{
+  render(<App/>);
+  const tempToConvertInput = screen.getByRole('textbox');
+  // there is no role called password
+  expect(tempToConvertInput.value).toBe('');
+})
